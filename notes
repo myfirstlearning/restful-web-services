@@ -1,0 +1,10 @@
+--What is Dispatcher Servlet ?
+--Who is configuring Dispatcher Servlet ?
+  SpringBoot AutoConfiguration
+--What is Dispatcher Servlet do ?
+  Root of we application
+  Handles all the requests
+--How does object coverted to JSON ?
+   SpringBoot AutoConfiguration -- Message Converter, Jackson Bean
+--Who is configuring the error mapping ?
+   SpringBoot AutoConfiguration
