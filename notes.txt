@@ -1,0 +1,137 @@
+WEB SERVICES
+-service over the network
+-system designed to support interoperable machine-machine communication over the network
+   --interoperable - platform independent
+   --machine-machine (java, .net, python -> service)
+   --network - communication by web
+--JSON - (Javascript Object Notation)
+-- Request/Response formatts XML/JSON (makes web services platform independent)
+--service definition - contract between the service consumer and service provider (how services understand request/response format)
+   -service derived over the network
+ --service definition -- Request/Response Format
+                      -- Request structure
+					  -- Response structure
+					  -- EndPoint (where service is exposed)
+--Transport - how the service is exposed
+                - HTTP and MQ
+
+--SOAP(Simple Object Access Protocol)
+    - defines specific XML request/response
+		- SOAP Envelop	--> SOAP-ENV: Header (meta information (authentication/authorization)) - SOAP header is optional
+		                --> SOAP-ENV: Body  (content of request/response)
+	-Format
+	    -> SOAP XML Request
+		-> SOAP XML Response
+	-Transport
+        -> SOAP over MQ
+        -> SOAP over HTTP
+    -Service Definition
+        -> WSDL	(Web Service Definition Language)
+
+    --WSDL -- EndPoint
+           -- All Operations
+           -- Request Structure
+           -- Reponse Structure
+
+--REST (Representational State Transfer)
+        - request/response format is defined by HTTP (Hyper Text Transfer Protocol)
+		- request/response  header
+		- request/response body
+
+	- Data Exchage Format
+        -> no restriction. JSON is popular
+    - Transport
+       -> HTTP
+    - Service Definition
+       -> No standard. WADL(Web Application Definition Language)/Swagger
+
+--HTTP METHODS
+        - GET  - fetch/read
+        - POST - create
+        - PUT  - update
+    	- DELETE  - delete
+
+--HTTP STATUS CODE
+        -200 - ok
+        -201 - created
+        -404 - service not found
+        -500 - internal server
+        -400 - bad request
+        -401 - unauthorized
+        -403 - forbiden
+
+--REST VS SOAP
+   - Architectural Approach vs Restrictions
+   - Data Exchange Format
+   - Service Definition
+   - Transport
+   - Ease of implementation
+
+
+--what is dispatcher servlet?
+     -logging.level.org.springframework = debug -> AutoConfigurationReport
+	 -springboot starter web has the dependency on spring MVC framework therefore we get dispatcherservlet on classpath
+	 -ErrorMVCAutoConfiguration
+	 -HttpMessageConverter - JacksonAutoConfiguration - (Object beans to JSON)
+	 -All above configurations are fired by springboot auto configuration
+--who is configuring dispatcher servlet?
+	 -springboot auto configuration
+--what does dispatcher servlet do?
+     - Mapping servlet: 'dispatcherServlet' to [/]
+	 -Front Controller
+	 -Root of web application
+	 -Handles the requests and maps to respective method
+--How does the HelloWorldBean object get converted to JSON?
+     -springboot auto configuration
+	 -HttpMessageConverter - JacksonAutoConfiguration - (Object beans to JSON)
+	 -@RestController -> @ResponseBody -> message conversion
+--who is configuring the error mapping?
+	 -springboot auto configuration
+	 --ErrorMVCAutoConfiguration
+
+--HATEOAS (Hypermedia As The Engine Of Application State)
+
+--INTERNATIONALIZATION (I18N)
+    customizing your services for different people arounf the world
+  -Configuration
+     -LocaleResolver
+        - Default Locale   Locale.US
+	-AcceptHeaderLocaleResolver -> we no need to special configure the locale as the request parameter
+  -ResourceBundleMessageSource
+
+--CONTENT NEGOTIATION
+    --XML format
+
+--SWAGGER DOCUMENTATION
+     - API documentation provided for the clients
+     - http://localhost:8080/v2/api-docs
+     - http://localhost:8080/swagger-ui.html#/
+
+--Monitoring the APIs
+    -springboot-actuator --> monitors the apis (down, failed)
+	-services provided by the actuator in the browser
+	-HAL - Hypertext Application Language
+	  -simple format that gives easy way to hyperlink between resources in your API
+	  -springboot actuator apis are in HAL format
+
+
+--FILTERING
+    -Ignore the fields and not sending them in the response
+    -Static filtering
+       --@JsonIgnore
+       --@JsonIgnoreProperties(value = "field1")
+    -Dynamic filtering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
